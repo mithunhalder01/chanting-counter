@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chanting Counter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Chanting Counter</h1>
+    </header>
+    <main>
+        <div class="contenier">
+            <div class="chant-count">
+            
+                <h2>Current Round</h2>
+                <div class="count">
+                    <h1 id="curVal">0</h1>
+                </div>
+
+            </div>
+            <div class="total-count">
+                <h2>total Round</h2>
+                <div class="count total">
+                    <h2 id="totalVal">0</h2>
+
+                </div>
+                <div class="total-p-l">
+                    <div onclick="tPlus()" class="total-cont plus">+</div>
+                    <div onclick="tMinus()" class="total-cont minace">-</div>
+                    <div onclick="tReset()" class="total-cont reset">0</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="btn-contenier">
+                <button type="button" onclick="plus()" class="btn plus">
+                    <h1>+</h1>
+                </button>
+                <button type="button" onclick="minus()" class="btn minace">
+                    <h1>-</h1>
+                </button>
+                <button type="button" onclick="reset()" class="btn reset">
+                    <h1>reset</h1>
+                </button>
+
+            </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
