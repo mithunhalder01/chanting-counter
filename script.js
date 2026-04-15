@@ -12,6 +12,7 @@ function plus() {
     } else {
         document.getElementById("curVal").innerText = newVal;
     }
+    saveData();
 }
 
 function minus() {
@@ -20,6 +21,7 @@ function minus() {
         alert("invalid")
     } else {
         document.getElementById("curVal").innerText = (Number)(store) - 1;
+        saveData();
     }
 
 
@@ -27,6 +29,7 @@ function minus() {
 function reset() {
     let store = document.getElementById("curVal").innerText;
     document.getElementById("curVal").innerText = (Number)(store) * 0;
+    saveData();
 }
 
 //total round 
@@ -34,6 +37,7 @@ function reset() {
 function tPlus() {
     let store = document.getElementById("totalVal").innerText
     document.getElementById("totalVal").innerText = (Number)(store) + 1;
+    saveData();
 }
 
 function tMinus() {
@@ -42,6 +46,7 @@ function tMinus() {
         alert("invalid")
     } else {
         document.getElementById("totalVal").innerText = (Number)(store) - 1;
+        saveData();
     }
 
 
@@ -49,4 +54,33 @@ function tMinus() {
 function tReset() {
     let store = document.getElementById("totalVal").innerText;
     document.getElementById("totalVal").innerText = (Number)(store) * 0;
+    saveData();
 }
+
+// localStorage functions
+function saveData() {
+    const currentVal = document.getElementById("curVal").innerText;
+    const totalVal = document.getElementById("totalVal").innerText;
+    
+    const data = {
+        currentCount: currentVal,
+        totalCount: totalVal
+    };
+    
+    localStorage.setItem('chantingData', JSON.stringify(data));
+}
+
+function loadData() {
+    const savedData = localStorage.getItem('chantingData');
+    
+    if (savedData) {
+        const data = JSON.parse(savedData);
+        document.getElementById("curVal").innerText = data.currentCount || 0;
+        document.getElementById("totalVal").innerText = data.totalCount || 0;
+    }
+}
+
+// Load data when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadData();
+});
